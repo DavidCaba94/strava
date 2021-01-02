@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
@@ -12,8 +12,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/strava',
+    path: '/strava/:page?',
     name: 'Strava',
+    alias: "/",
     component: () => import(/* webpackChunkName: "strava" */ '../views/Strava.vue')
   }
 ]

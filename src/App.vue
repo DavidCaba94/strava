@@ -1,11 +1,44 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
+    <router-link to="/home">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/strava">Strava</router-link>
   </div>
   <router-view/>
+  <hr />
+  <nav>
+    {{ info }}
+    <router-link :to="prevComp">Prev</router-link> |
+    <router-link :to="nextComp">Next</router-link>
+  </nav>
 </template>
+
+<script setup>
+  const { ref, provide, computed }=require("vue");
+  const { useRoute }=require("vue-router");
+  const info = ref({
+    count: 0,
+    pages: 0,
+    next: 0,
+    prev: 0
+  });
+
+  provide("info", info);
+
+  const route = useRoute();
+
+  const prevComp = computed(() => ({
+    name: route.name,
+    params: { page: info.value.prev || route.params.page },
+  }));
+
+  const nextComp = computed(() => ({
+    name: route.name,
+    params: { page: info.value.next || route.params.page },
+  }));
+
+  console.log(nextComp,prevComp);
+</script>
 
 <style>
 #app {
