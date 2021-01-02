@@ -1,6 +1,7 @@
 <template>
     <div class="about">
         <h1>STRAVA</h1>
+        <p class="text-xl font-medium text-green-500">https://www.npmjs.com/package/strava-v3</p>
         <ul>
             <li v-for="episode in episodes" :key="episode.id">{{episode.name}}</li>
         </ul>
