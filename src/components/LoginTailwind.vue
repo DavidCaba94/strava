@@ -52,17 +52,20 @@
 </template>
 
 <script>
-//var Vue = require('vue');
-//Vue.use(require('vue-resource'));
+import axios from "axios";
+const axiosInstance = axios.create({
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+  }
+});
 export default {
     methods: {
         login: function() {
             alert("Login");
-            this.$http.get('../assets/rest/login.php').then(function(response){
-                alert(response.body);
-            }, function(){
-                alert('Error!');
-            });
+            axiosInstance.get("localhost:8080/src/assets/rest/login.php")
+                 .then(response => console.log(response))
         }
     }
 }
