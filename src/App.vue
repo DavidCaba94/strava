@@ -1,19 +1,22 @@
 <template>
-  <div id="nav">
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/strava">Strava</router-link>
-  </div>
-  <router-view/>
-  <hr />
+  <MenuPrueba></MenuPrueba>
+  <!--
   <nav>
     {{ info }}
     <router-link :to="prevComp">Prev</router-link> |
     <router-link :to="nextComp">Next</router-link>
   </nav>
+  -->
 </template>
 
-<script setup>
+<script>
+  import MenuPrueba from './components/MenuPrueba.vue'
+  export default {
+    components: {
+      MenuPrueba
+    }
+  }
+  /*
   const { ref, provide, computed }=require("vue");
   const { useRoute }=require("vue-router");
   const info = ref({
@@ -38,9 +41,14 @@
   }));
 
   console.log(nextComp,prevComp);
+  */
 </script>
 
 <style>
+body {
+  background-color: #f9f9f9;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -55,10 +63,10 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #525252;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #4f46e5;
 }
 </style>

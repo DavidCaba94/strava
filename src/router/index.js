@@ -14,8 +14,18 @@ const routes = [
   {
     path: '/strava/:page?',
     name: 'Strava',
-    alias: "/",
     component: () => import(/* webpackChunkName: "strava" */ '../views/Strava.vue')
+  },
+  {
+    path: '/prueba',
+    name: 'Prueba',
+    alias: "/",
+    component: () => import(/* webpackChunkName: "strava" */ '../views/Prueba.vue')
+  },
+  {
+    path: '/bienvenido',
+    name: 'Bienvenido',
+    component: () => import(/* webpackChunkName: "strava" */ '../views/Bienvenido.vue')
   }
 ]
 
