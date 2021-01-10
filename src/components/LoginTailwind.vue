@@ -53,6 +53,7 @@
 
 <script>
 import axios from "axios";
+var url = "localhost:8080/src/assets/rest/login.php"
 const axiosInstance = axios.create({
   headers: {
     "Access-Control-Allow-Origin": "*",
@@ -63,9 +64,10 @@ const axiosInstance = axios.create({
 export default {
     methods: {
         login: function() {
-            alert("Login");
-            axiosInstance.get("localhost:8080/src/assets/rest/login.php")
-                 .then(response => console.log(response))
+            axiosInstance.get(url)
+                 .then(response => {
+                    console.log(response)
+                 })
         }
     }
 }
