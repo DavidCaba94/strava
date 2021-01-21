@@ -15,10 +15,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Routes
-app.use('/tasks', require('./router/tasks'));
+app.use('/api/tasks', require('./router/tasks'));
 
 //Static files
-app.use(express.static('localhost:8000/public'));
+app.use(express.static('localhost:8080/public'));
 
 //Server is listening
 app.listen(app.get('port'), () => {

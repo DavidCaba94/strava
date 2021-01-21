@@ -52,6 +52,7 @@
 </template>
 
 <script>
+/*
 import axios from "axios";
 
 var url = "localhost:8080/src/assets/rest/login.php"
@@ -62,13 +63,38 @@ const axiosInstance = axios.create({
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
   }
 });
+*/
+class Task {
+    constructor(title, description){
+        this.title = title;
+        this.description = description;
+    }
+}
+
 export default {
+    data() {
+        return {
+            task: new Task("prueba boton", "descripcion boton")
+        }
+    },
     methods: {
         login: function() {
+            /*
             axiosInstance.get(url)
                  .then(response => {
                     console.log(response)
                  })
+                 */
+            fetch('http://localhost:3000/api/tasks', {
+                method: 'POST',
+                body: JSON.stringify(this.task),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(res => console.log(res))
         }
     }
 }
